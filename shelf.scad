@@ -13,13 +13,6 @@ module countersink() {
    cylinder(r=5.5, h=38.1);
  }
 }
-module slidehole() {
- union() {
-   cylinder(r=2.5, h=20);
-   translate([-2.5,0,0])cube(size=[5,5,20]);
-   translate([0,10,0])cylinder(r=5.5, h=20);
- }
-}
 translate([s/2,s/2,0])
 difference() {
   union() {
