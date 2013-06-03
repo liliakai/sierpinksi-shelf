@@ -21,7 +21,7 @@ screwshaft = 2.5;   // penis.
 module triangle(size=sidelength, height=1) {
   // extrudes a right triangle of given size and thickness
   linear_extrude(height=height, center=true)
-  polygon(points = [[0, 0], [-size, 0], [0, -size]], paths = [[0, 1, 2]]);
+  polygon(points = [[0, 0], [size, 0], [0, size]], paths = [[0, 1, 2]]);
 }
 
 module countersink() {
@@ -40,30 +40,30 @@ P = 5;            // padding for outer edges
 
 //translate([S/4, S/4, 0]) // viewing position
 difference() {
-  translate([-(S+P), -(S+P), 0])
+  translate([S+P, S+P, 0])
     scale(-1)
     triangle(sidelength + P*4, thickness);
 
   triangle(S, 50);
-  translate([S/2, -S/2, 0])triangle(size=S/2, height=50);
-  translate([-S/2, S/2, 0])triangle(size=S/2, height=50);
-  translate([-S/2, -S/2, 0])triangle(size=S/2, height=50);
+  translate([S/2, -S/2, 0])  triangle(size=S/2, height=50);
+  translate([-S/2, S/2, 0])  triangle(size=S/2, height=50);
+  translate([S/2, S/2, 0]) triangle(size=S/2, height=50);
 
-  rotate(-90, [0, 1, 0])
-    translate([0, S-15, S+5])
+  rotate(90, [0, 1, 0])
+    translate([0, -(S-15), S+5])
     countersink();
 
-  rotate(90, [1, 0, 0])
-    translate([S-15, 0, S-15])
+  rotate(-90, [1, 0, 0])
+    translate([-(S-15), 0, S-15])
     countersink();
 
-  translate([-S+15, -S+30, -10])
-    rotate(-65, [0, 1, 0])
+  translate([S-15, S-30, -10])
+    rotate(65, [0, 1, 0])
     translate([0, 0, 5])
     countersink();
 
-  translate([-S+30, -S+15, -10])
-    rotate(65, [1, 0, 0])
+  translate([S-30, S-15, -10])
+    rotate(-65, [1, 0, 0])
     translate([0, 0, 5])
     countersink();
 }
