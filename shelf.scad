@@ -73,4 +73,18 @@ difference() {
     rotate(angle, [1, 0, 0])
     translate([0, 0, -E*cos(angle)])
     countersink();
+
+  translate([S/4, 0, 0])
+  rotate(45, [0, 1, 0])
+  cube(size=[15,250,15], center=true);
+  translate([-(S/4+10), 0, 0])
+  rotate(45, [0, 1, 0])
+  cube(size=[15,250,15], center=true);
+  translate([0, S/4, 0])
+  rotate(45, [1, 0, 0])
+  cube(size=[250,15,15], center=true);
+  translate([0, -(S/4+10), 0])
+  rotate(45, [1, 0, 0])
+  cube(size=[250,15,15], center=true);
+
 }
