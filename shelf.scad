@@ -35,23 +35,22 @@ module countersink() {
 }
 
 S = sidelength/2; // precompute this oft-used value
-P = 10;            // padding for outer edges
+P = 5;            // padding for outer edges
 
 
-translate([S/4, S/4, 0]) // viewing position
+//translate([S/4, S/4, 0]) // viewing position
 difference() {
-  difference() {
-    translate([-(S+P/2), -(S+P/2), 0])
-      scale(-1)
-      triangle(sidelength + P*2, 30);
-    triangle(S, 50);
-    translate([S/2, -S/2, 0])triangle(size=S/2, height=50);
-    translate([-S/2, S/2, 0])triangle(size=S/2, height=50);
-    translate([-S/2, -S/2, 0])triangle(size=S/2, height=50);
-  }
+  translate([-(S+P), -(S+P), 0])
+    scale(-1)
+    triangle(sidelength + P*4, thickness);
+
+  triangle(S, 50);
+  translate([S/2, -S/2, 0])triangle(size=S/2, height=50);
+  translate([-S/2, S/2, 0])triangle(size=S/2, height=50);
+  translate([-S/2, -S/2, 0])triangle(size=S/2, height=50);
 
   rotate(-90, [0, 1, 0])
-    translate([0, S-15, S-15])
+    translate([0, S-15, S+5])
     countersink();
 
   rotate(90, [1, 0, 0])
