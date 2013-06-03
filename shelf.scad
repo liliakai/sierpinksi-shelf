@@ -42,17 +42,16 @@ P = 5;            // padding for outer edges
 E = screwlength - shelfthickness;
 
 
-
 //translate([S/4, S/4, 0]) // viewing position
 difference() {
   translate([S+P, S+P, 0])
     scale(-1)
     triangle(sidelength + P*4, thickness);
 
-  triangle(S, 50);
-  translate([S/2, -S/2, 0])  triangle(size=S/2, height=50);
-  translate([-S/2, S/2, 0])  triangle(size=S/2, height=50);
-  translate([S/2, S/2, 0]) triangle(size=S/2, height=50);
+  triangle(S-P, 50);
+  translate([S/2, -S/2, 0])  triangle(size=S/2-P, height=50);
+  translate([-S/2, S/2, 0])  triangle(size=S/2-P, height=50);
+  translate([S/2, S/2, 0]) triangle(size=S/2-P, height=50);
 
   rotate(90, [0, 1, 0])
     translate([0, -(S-20), S+5-E])
