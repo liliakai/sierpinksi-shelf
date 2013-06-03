@@ -39,16 +39,12 @@ S = sidelength/2; // precompute this oft-used value
 translate([S/4,S/4,0]) difference() {
   union() {
     difference() {
-      union() {
-        cube(size=[sidelength+10,sidelength+10,30],center=true);
-
-        translate([10,0,0])
-          cube(size=[sidelength+10,sidelength+10,30],center=true);
-        translate([0,10,0])
-          cube(size=[sidelength+10,sidelength+10,30],center=true);
-      }
-      translate([S+20,S+20,0]) triangle(sidelength+30, 50);
-      rotate(180,[0,0,1])translate([S,S,0])triangle(sidelength, 50);
+      translate([-S-5, -S-5, 0])
+        scale(-1)
+        triangle(sidelength + 20, 30);
+      translate([-S, -S, 0])
+        scale(-1)
+        triangle(sidelength, 50);
     }
 
     difference() {
