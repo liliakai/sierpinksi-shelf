@@ -13,7 +13,10 @@
 
 sidelength = 200;
 thickness = 30;
-S = sidelength/2;
+
+screwlength = 38.1; // 1.5 inches in mm
+screwhead = 5.5;
+screwshaft = 2.5;   // penis.
 
 module triangle(size=sidelength, height=1) {
   // extrudes a right triangle of given size and thickness
@@ -23,12 +26,16 @@ module triangle(size=sidelength, height=1) {
 }
 
 module countersink() {
- union() {
-   cylinder(r=2.5, h=38.1*2, center=true);
-   cylinder(r=5.5, h=38.1);
- }
+  // The thinner cylinder can be used to show how far your
+  // screw will penetrate.
+  union() {
+    cylinder(r=screwhead, h=screwlength);
+    translate([0,0,-screwlength])
+    #cylinder(r=screwshaft, h=screwlength);
+  }
 }
 
+S = sidelength/2; // precompute this oft-used value
 translate([S/4,S/4,0]) difference() {
   union() {
     difference() {
