@@ -28,8 +28,8 @@ module countersink() {
   // The thinner cylinder can be used to show how far your
   // screw will penetrate.
   union() {
-    cylinder(r=screwhead, h=screwlength);
     translate([0, 0, -screwlength])
+      cylinder(r=screwhead, h=screwlength);
     #cylinder(r=screwshaft, h=screwlength);
   }
 }
@@ -50,23 +50,19 @@ translate([S/4,S/4,0]) difference() {
   }
   rotate(-90,[0,1,0])
     translate([0,S-15,S-15])
-    scale(-1)
     countersink();
 
   rotate(90,[1,0,0])
     translate([S-15,0,S-15])
-    scale(-1)
     countersink();
 
   translate([-S+15,-S+30,-10])
     rotate(-65,[0,1,0])
     translate([0,0,5])
-    scale(-1)
     countersink();
 
   translate([-S+30,-S+15,-10])
     rotate(65,[1,0,0])
     translate([0,0,5])
-    scale(-1)
     countersink();
 }
