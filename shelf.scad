@@ -17,6 +17,9 @@ thickness = 30;
 screwlength = 38.1; // 1.5 inches in mm
 screwhead = 5.5;
 screwshaft = 2.5;   // penis.
+angle = 25;
+
+shelfthickness = 12.7; // 0.5 in in mm
 
 module triangle(size=sidelength, height=1) {
   // extrudes a right triangle of given size and thickness
@@ -36,6 +39,8 @@ module countersink() {
 
 S = sidelength/2; // precompute this oft-used value
 P = 5;            // padding for outer edges
+E = screwlength - shelfthickness;
+
 
 
 //translate([S/4, S/4, 0]) // viewing position
@@ -50,20 +55,23 @@ difference() {
   translate([S/2, S/2, 0]) triangle(size=S/2, height=50);
 
   rotate(90, [0, 1, 0])
-    translate([0, -(S-15), S+5])
+    translate([0, -(S-20), S+5-E])
     countersink();
 
   rotate(-90, [1, 0, 0])
-    translate([-(S-15), 0, S-15])
+    translate([-(S-20), 0, S+5-E])
     countersink();
 
-  translate([S-15, S-30, -10])
-    rotate(65, [0, 1, 0])
-    translate([0, 0, 5])
+
+  rotate(90, [0, 1, 0])
+    translate([0, (S-25), S+5])
+    rotate(-angle, [0, 1, 0])
+    translate([0, 0, -E*cos(angle)])
     countersink();
 
-  translate([S-30, S-15, -10])
-    rotate(-65, [1, 0, 0])
-    translate([0, 0, 5])
+  rotate(-90, [1, 0, 0])
+    translate([S-25, 0, S+5])
+    rotate(angle, [1, 0, 0])
+    translate([0, 0, -E*cos(angle)])
     countersink();
 }
