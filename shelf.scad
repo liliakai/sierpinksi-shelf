@@ -45,7 +45,7 @@ E = screwlength - shelfthickness;
 //translate([S/4, S/4, 0]) // viewing position
 difference() {
   translate([S+P, S+P, 0])
-    scale(-1)
+    rotate(180, [0,0,1])
     triangle(sidelength + P*4, thickness);
 
   triangle(S-P, 50);
@@ -86,5 +86,4 @@ difference() {
   translate([0, -(S/4+10), 0])
   rotate(45, [1, 0, 0])
   cube(size=[250,15,15], center=true);
-
 }
