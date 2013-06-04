@@ -51,24 +51,33 @@ difference() {
   translate([S/2, -S/2, 0])  triangle(size=S/2-P, height=50);
   translate([-S/2, S/2, 0])  triangle(size=S/2-P, height=50);
   translate([S/2, S/2, 0]) triangle(size=S/2-P, height=50);
+  translate([-S/4, S/4, 0]) triangle(size=S/4-P, height=50);
+  translate([S/4, S*3/4, 0]) triangle(size=S/4-P, height=50);
+  translate([-S/4, S*3/4, 0]) triangle(size=S/4-P, height=50);
+  translate([S/4, -S/4, 0]) triangle(size=S/4-P, height=50);
+  translate([S*3/4, S/4, 0]) triangle(size=S/4-P, height=50);
+  translate([S*3/4, -S/4, 0]) triangle(size=S/4-P, height=50);
+  translate([S*3/4, -S*3/4, 0]) triangle(size=S/4-P, height=50);
+  translate([-S*3/4, S*3/4, 0]) triangle(size=S/4-P, height=50);
+  translate([S*3/4+P, S*3/4+P, 0]) triangle(size=S/4-P, height=50);
 
   rotate(90, [0, 1, 0])
-    translate([0, -(S-20), S+5-E])
+    translate([0, -(S-17), S+5-E])
     countersink();
 
   rotate(-90, [1, 0, 0])
-    translate([-(S-20), 0, S+5-E])
+    translate([-(S-17), 0, S+5-E])
     countersink();
 
 
   rotate(90, [0, 1, 0])
-    translate([0, (S-25), S+5])
+    translate([0, (S-27), S+5])
     rotate(-angle, [0, 1, 0])
     translate([0, 0, -E*cos(angle)])
     countersink();
 
   rotate(-90, [1, 0, 0])
-    translate([S-25, 0, S+5])
+    translate([S-27, 0, S+5])
     rotate(angle, [1, 0, 0])
     translate([0, 0, -E*cos(angle)])
     countersink();
