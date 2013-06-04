@@ -59,39 +59,26 @@ difference() {
   translate([S*3/4, -S/4, 0]) triangle(size=S/4-P, height=50);
   translate([S*3/4, -S*3/4, 0]) triangle(size=S/4-P, height=50);
   translate([-S*3/4, S*3/4, 0]) triangle(size=S/4-P, height=50);
-  translate([S*3/4+P, S*3/4+P, 0]) triangle(size=S/4-P, height=50);
+  translate([S*3/4, S*3/4, 0]) triangle(size=S/4-P, height=50);
 
   rotate(90, [0, 1, 0])
-    translate([0, -(S-17), S+5-E])
+    translate([0, -(S*7/8-P), S+5-E])
     countersink();
 
   rotate(-90, [1, 0, 0])
-    translate([-(S-17), 0, S+5-E])
+    translate([-(S*7/8-P), 0, S+5-E])
     countersink();
 
 
   rotate(90, [0, 1, 0])
-    translate([0, (S-27), S+5])
+    translate([0, (S*5/8+P), S+5])
     rotate(-angle, [0, 1, 0])
     translate([0, 0, -E*cos(angle)])
     countersink();
 
   rotate(-90, [1, 0, 0])
-    translate([S-27, 0, S+5])
+    translate([S*5/8+P, 0, S+5])
     rotate(angle, [1, 0, 0])
     translate([0, 0, -E*cos(angle)])
     countersink();
-
-  translate([S/4, 0, 0])
-  rotate(45, [0, 1, 0])
-  cube(size=[15,250,15], center=true);
-  translate([-(S/4+10), 0, 0])
-  rotate(45, [0, 1, 0])
-  cube(size=[15,250,15], center=true);
-  translate([0, S/4, 0])
-  rotate(45, [1, 0, 0])
-  cube(size=[250,15,15], center=true);
-  translate([0, -(S/4+10), 0])
-  rotate(45, [1, 0, 0])
-  cube(size=[250,15,15], center=true);
 }
