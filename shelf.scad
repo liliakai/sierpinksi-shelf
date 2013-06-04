@@ -1,12 +1,11 @@
 /*
   Shelf bracket based on Sierpinkski's triangle.
 
-  This bracket is designed for use with 1.5" screws and a drill.
-  In particular, the mounting holes are countersunk such that 1.5"
-  screws will not stick through a ~0.5 in shelf when tightened.
-  Also, the holes near the apex are diagonally countersunk so as
-  to be accessible from the side. This means that you need to install
-  pairs of brackets in opposite 'handed-ness' for maximum lateral
+  This bracket is designed for use with 1.5" screws and a drill. In particular,
+  the mounting holes are countersunk such that 1.5" screws will not stick
+  through a ~0.5 in shelf when tightened. Two of the holes diagonally
+  countersunk so as to be accessible from the side. This means that you need to
+  install pairs of brackets in opposite 'handed-ness' for maximum lateral
   stability.
 
 */
